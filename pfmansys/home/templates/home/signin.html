@@ -1,0 +1,22 @@
+{% extends 'home/base.html' %}
+    {% block content %}
+        <div class="container">
+            <h4>Log In</h4>
+        </div>
+        <div class="container">
+            <form method="POST" class="post-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-secondary btn-lg active">Log In</button>
+            </form>
+        </div>
+        <div class="container">
+            {% if messages %}
+                <ul class="messages">
+                {% for message in messages %}
+                     <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    {% endblock %}

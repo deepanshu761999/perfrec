@@ -1,0 +1,24 @@
+{% extends 'home/base.html' %}
+    {% block content %}
+        <div class='container-fluid'>
+            <form method="POST" class="post-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-secondary btn-lg active">Create</button>
+            </form>
+        </div>
+        {% if messages %}
+                <ul class="messages">
+                {% for message in messages %}
+                     <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        <br>
+        <div class="container-fluid">
+            {% for x in test_scores %}
+                <p style="align-content:center; background-color: red ;">{{ x.title_name }}  --------------{{ x.percentage_score }}</p>
+                <button value="Delete"><a href="/home/delete_test/{{ course_id }}/{{ x.pk }}">Delete</a></button>
+            {% endfor %}
+        </div>
+    {% endblock %}

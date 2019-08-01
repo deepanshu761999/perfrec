@@ -1,0 +1,21 @@
+{% extends 'home/base.html' %}
+    {% block content %}
+        <div class="container-fluid">
+            <h1 class="display-4">Welcome</h1>
+            <p>"Stuck with your <mark>growth/progress</mark> in academics." We are here. No need worry anymore.</p><br>
+        </div>
+        <div class="container-fluid">
+            <h2>What should you expect from us?</h2>
+            <p>We provide you with your past performance record so that you can make inference out of it. However acknowleding your current standing is not enough, it's just a first step. We also provide solutions to your problem which you may not like doing(i.e., self-analysis).</p>
+        </div>
+        <br>
+        {% if user.is_authenticated %}
+        {% else %}
+            <blockquote class="blockquote text-center">
+                <p class="mb-0">If you don't have an account yet, make one and get yourself an e-counsellor.</p>
+            </blockquote>
+            <div class="container" style="text-align:center;">
+            <a href="register/" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Sign Up</a>
+            </div>
+        {% endif %}
+    {% endblock %}
